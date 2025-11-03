@@ -38,8 +38,8 @@ def index():
     return send_from_directory(app.static_folder, "index.html")
 
 
-@app.route("/healthz")
-def healthz():
+@app.route("/health")
+def health():
     return "ok", 200
 
 
