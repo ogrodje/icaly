@@ -4,6 +4,10 @@ icaly is a tiny Flask application that turns the public timeline at `https://goo
 into an auto-updating iCalendar feed. It exposes a Google Calendar–friendly `.ics` endpoint and a
 companion web page where you can preview upcoming events before subscribing.
 
+## Production
+
+The service is serving requests at [`https://icaly.ogrodje.si/calendar.ics`](https://icaly.ogrodje.si/calendar.ics)
+
 ## Features
 
 - Fetches and caches events from the timeline API every five minutes to minimise upstream traffic.
