@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Timeline Calendar Feed</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background-color: #111827;
+        color: #f9fafb;
+      }
+
+      body {
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+        max-width: 760px;
+      }
+
+      h1 {
+        font-size: clamp(1.8rem, 3vw + 1rem, 2.6rem);
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      a.button {
+        display: inline-block;
+        margin: 0.5rem 0.75rem 0.5rem 0;
+        padding: 0.65rem 1.2rem;
+        border-radius: 999px;
+        background: #2563eb;
+        color: #f9fafb;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.2s ease;
+      }
+
+      a.button.secondary {
+        background: transparent;
+        border: 2px solid currentColor;
+      }
+
+      a.button:hover {
+        background: #1d4ed8;
+      }
+
+      a.button.secondary:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      #events {
+        margin-top: 2rem;
+      }
+
+      .event {
+        padding: 1rem 1.25rem;
+        border-radius: 0.75rem;
+        background: rgba(255, 255, 255, 0.05);
+        margin-bottom: 1rem;
+      }
+
+      .event h3 {
+        margin: 0 0 0.35rem;
+        font-size: 1.1rem;
+      }
+
+      .event time {
+        display: block;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      footer {
+        margin-top: 3rem;
+        font-size: 0.85rem;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Timeline Calendar Feed</h1>
+      <p>
+        Subscribe to the shared calendar generated from
+        <code>https://goo.ogrodje.si/timeline</code>. The feed updates automatically and includes
+        each event's description and link for quick access.
+      </p>
+
+      <div>
+        <a id="google-calendar" class="button" href="#" target="_blank" rel="noopener">
+          Add to Google Calendar
+        </a>
+        <a id="ics-download" class="button secondary" href="/calendar.ics">
+          Download ICS feed
+        </a>
+      </div>
+    </header>
+
+    <section id="events">
+      <h2>Upcoming events</h2>
+      <div id="events-list">
+        <p>Loading events…</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Run the Python server locally with <code>pip install -r requirements.txt</code> followed by
+        <code>python app.py</code>. When deployed, Google Calendar will fetch the
+        <code>calendar.ics</code> endpoint directly, so keep the server reachable from the open
+        internet if you want continuous updates.
+      </p>
+    </footer>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
